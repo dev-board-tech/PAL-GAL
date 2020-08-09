@@ -1,0 +1,75 @@
+;By Iulian Gheorghiu (morgoth@devboard.tech)
+
+
+CHIP  COUNTER   PAL16V8
+
+;---------------------------------- PIN Declarations ---------------
+PIN  1           CLK                  COMBINATORIAL             ; INPUT
+PIN  2           RST                  COMBINATORIAL             ; INPUT
+;PIN  10         GND                                            ; INPUT
+PIN  11          OE                   COMBINATORIAL             ; INPUT
+PIN  12         /Q0                   REGISTERED                ; OUTPUT
+PIN  13         /Q1                   REGISTERED                ; OUTPUT
+PIN  14         /Q2                   REGISTERED                ; OUTPUT
+PIN  15         /Q3                   REGISTERED                ; OUTPUT
+PIN  16         /Q4                   REGISTERED                ; OUTPUT
+PIN  17         /Q5                   REGISTERED                ; OUTPUT
+PIN  18         /Q6                   REGISTERED                ; OUTPUT
+PIN  19         /Q7                   REGISTERED                ; OUTPUT
+;PIN  20         VCC                                            ; INPUT
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+
+Q0      := /Q0 + 
+           /RST
+
+Q1      := /Q1 * /Q0 + 
+            Q1 *  Q0 + 
+           /RST
+
+Q2      := /Q2 * /Q1 * /Q0 + 
+            Q2 *  Q1 + 
+            Q2 *  Q0 + 
+           /RST
+
+Q3      := /Q3 * /Q2 * /Q1 */Q0 + 
+            Q3 *  Q2 + 
+            Q3 *  Q1 + 
+            Q3 *  Q0 + 
+           /RST
+
+Q4      := /Q4 * /Q3 * /Q2 * /Q1 */Q0 + 
+            Q4 *  Q3 + 
+            Q4 *  Q2 + 
+            Q4 *  Q1 + 
+            Q4 *  Q0 + 
+           /RST
+
+Q5      := /Q5 * /Q4 * /Q3 * /Q2 * /Q1 */Q0 + 
+            Q5 *  Q4 + 
+            Q5 *  Q3 + 
+            Q5 *  Q2 + 
+            Q5 *  Q1 + 
+            Q5 *  Q0 + 
+           /RST
+
+Q6      := /Q6 * /Q5 * /Q4 * /Q3 * /Q2 * /Q1 */Q0 + 
+            Q6 *  Q5 + 
+            Q6 *  Q4 + 
+            Q6 *  Q3 + 
+            Q6 *  Q2 + 
+            Q6 *  Q1 + 
+            Q6 *  Q0 + 
+           /RST
+
+Q7      := /Q7 * /Q6 * /Q5 * /Q4 * /Q3 * /Q2 * /Q1 */Q0 + 
+            Q7 *  Q6 + 
+            Q7 *  Q5 + 
+            Q7 *  Q4 + 
+            Q7 *  Q3 + 
+            Q7 *  Q2 + 
+            Q7 *  Q1 + 
+            Q7 *  Q0; + 
+           ;/RST
+

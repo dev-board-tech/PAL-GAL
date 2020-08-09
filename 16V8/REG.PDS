@@ -1,0 +1,42 @@
+;By Iulian Gheorghiu (morgoth@devboard.tech)
+
+;
+; This code represent a clocked latch, the latch will register the input value at negative edge of the CLK.
+; Each output can be wired to any input, useful in case of a rearranged latched BUS.
+; OE is the output enable, when is logic HIGH the outputs are TRI STATE.
+;
+
+CHIP  DECODER  PAL16V8
+
+;---------------------------------- PIN Declarations ---------------
+PIN  1          CLK                  COMBINATORIAL             ; INPUT
+PIN  2          AIN                  COMBINATORIAL             ; INPUT
+PIN  3          BIN                  COMBINATORIAL             ; INPUT
+PIN  4          CIN                  COMBINATORIAL             ; INPUT 
+PIN  5          DIN                  COMBINATORIAL             ; INPUT
+PIN  6          EIN                  COMBINATORIAL             ; INPUT
+PIN  7          FIN                  COMBINATORIAL             ; INPUT 
+PIN  8          GIN                  COMBINATORIAL             ; INPUT
+PIN  9          HIN                  COMBINATORIAL             ; INPUT
+;PIN  10        GND                                            ; INPUT
+PIN  11         OE                   COMBINATORIAL             ; INPUT
+PIN  12         HOUT                 REGISTERED                ; OUTPUT
+PIN  13         GOUT                 REGISTERED                ; OUTPUT
+PIN  14         FOUT                 REGISTERED                ; OUTPUT
+PIN  15         EOUT                 REGISTERED                ; OUTPUT
+PIN  16         DOUT                 REGISTERED                ; OUTPUT
+PIN  17         COUT                 REGISTERED                ; OUTPUT
+PIN  18         BOUT                 REGISTERED                ; OUTPUT
+PIN  19         AOUT                 REGISTERED                ; OUTPUT
+;PIN  20        VCC                                            ; INPUT
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+AOUT = AIN
+BOUT = BIN
+COUT = CIN
+DOUT = DIN
+EOUT = EIN
+FOUT = FIN
+GOUT = GIN
+HOUT = HIN

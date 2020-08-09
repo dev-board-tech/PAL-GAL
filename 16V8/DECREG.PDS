@@ -1,0 +1,80 @@
+                                                 ;PALASM Design Description
+
+;---------------------------------- Declaration Segment ------------
+TITLE    TUTOR2.PDS
+PATTERN  A
+REVISION 2.0
+AUTHOR   J.ENGINEER
+COMPANY  ADVANCED MICRO DEVICES
+DATE     01/01/90
+
+;Modifyed by Iulian Gheorghiu (morgoth@devboard.tech)
+
+;
+; This code represent a decoder, at each point on the time only one output is logic LOW, something like 74LS138 but with registered outputs.
+; All outputs are registered to the negative edge of the CLK.
+; OE is the output enable, when is logic HIGH the outputs are TRI STATE.
+; If you want the outputs to be active HIGH you need to remove "/" from before output equations ie: 'A = /X * /Y * /Z' instead of '/A = /X * /Y * /Z'
+;
+
+CHIP  DECODER  PAL16V8
+
+;---------------------------------- PIN Declarations ---------------
+PIN  1          CLK                  COMBINATORIAL             ; INPUT
+PIN  2          X                    COMBINATORIAL             ; INPUT
+PIN  3          Y                    COMBINATORIAL             ; INPUT
+PIN  4          Z                    COMBINATORIAL             ; INPUT 
+;PIN  10         GND                                            ; INPUT
+PIN  11         OE                   COMBINATORIAL             ; INPUT
+PIN  12         A                    REGISTERED                ; OUTPUT
+PIN  13         B                    REGISTERED                ; OUTPUT
+PIN  14         C                    REGISTERED                ; OUTPUT
+PIN  15         D                    REGISTERED                ; OUTPUT
+PIN  16         E                    REGISTERED                ; OUTPUT
+PIN  17         F                    REGISTERED                ; OUTPUT
+PIN  18         G                    REGISTERED                ; OUTPUT
+PIN  19         H                    REGISTERED                ; OUTPUT
+;PIN  20         VCC                                            ; INPUT
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+/A = /X * /Y * /Z
+/B = /X * /Y *  Z
+/C = /X *  Y * /Z
+/D = /X *  Y *  Z
+/E =  X * /Y * /Z
+/F =  X * /Y *  Z
+/G =  X *  Y * /Z
+/H =  X *  Y *  Z
+
+;----------------------------------- Simulation Segment ------------
+SIMULATION
+TRACE_ON X Y Z A B C D E F G H
+SETF    /OE
+SETF    /X /Y /Z
+CLOCKF   CLK
+CHECK   /A  B  C  D  E  F  G  H
+SETF    /X /Y  Z
+CLOCKF   CLK
+CHECK    A /B  C  D  E  F  G  H
+SETF    /X  Y /Z
+CLOCKF   CLK
+CHECK    A  B /C  D  E  F  G  H
+SETF    /X  Y  Z
+CLOCKF   CLK
+CHECK    A  B  C /D  E  F  G  H
+SETF     X /Y /Z
+CLOCKF   CLK
+CHECK    A  B  C  D /E  F  G  H
+SETF     X /Y  Z
+CLOCKF   CLK
+CHECK    A  B  C  D  E /F  G  H
+SETF     X  Y /Z
+CLOCKF   CLK
+CHECK    A  B  C  D  E  F /G  H
+SETF     X  Y  Z
+CLOCKF   CLK
+CHECK    A  B  C  D  E  F  G /H
+TRACE_OFF
+
+;-------------------------------------------------------------------

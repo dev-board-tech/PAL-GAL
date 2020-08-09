@@ -1,0 +1,72 @@
+;By Iulian Gheorghiu (morgoth@devboard.tech)
+
+
+;
+; This code represent a demultiplexer, at each point on time only one output has the logic output of IN pin, something like 74LS138.
+; The outputs are not registered, so, any change on the X, Y, Z and IN will be imediatelly reflected on A-H outputs.
+; OE is the output enable, when is logic HIGH the outputs are TRI STATE.
+; If you want the outputs to be active HIGH you need to remove "/" from before output equations and IN pin ie: 'A = /X * /Y * /Z * IN' instead of '/A = /X * /Y * /Z * /IN'
+;
+
+CHIP  DECODER  PAL16V8
+
+;---------------------------------- PIN Declarations ---------------
+PIN  1          CLK                  COMBINATORIAL             ; INPUT
+PIN  2          X                    COMBINATORIAL             ; INPUT
+PIN  3          Y                    COMBINATORIAL             ; INPUT
+PIN  4          Z                    COMBINATORIAL             ; INPUT 
+PIN  5          IN                   COMBINATORIAL             ; INPUT
+;PIN  10        GND                                            ; INPUT
+PIN  11         OE                   COMBINATORIAL             ; INPUT
+PIN  12         A                    COMBINATORIAL             ; OUTPUT
+PIN  13         B                    COMBINATORIAL             ; OUTPUT
+PIN  14         C                    COMBINATORIAL             ; OUTPUT
+PIN  15         D                    COMBINATORIAL             ; OUTPUT
+PIN  16         E                    COMBINATORIAL             ; OUTPUT
+PIN  17         F                    COMBINATORIAL             ; OUTPUT
+PIN  18         G                    COMBINATORIAL             ; OUTPUT
+PIN  19         H                    COMBINATORIAL             ; OUTPUT
+;PIN  20        VCC                                            ; INPUT
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+/A = /X * /Y * /Z * /IN
+/B = /X * /Y *  Z * /IN
+/C = /X *  Y * /Z * /IN
+/D = /X *  Y *  Z * /IN
+/E =  X * /Y * /Z * /IN
+/F =  X * /Y *  Z * /IN
+/G =  X *  Y * /Z * /IN
+/H =  X *  Y *  Z * /IN
+
+;----------------------------------- Simulation Segment ------------
+SIMULATION
+TRACE_ON X Y Z A B C D E F G H
+SETF    /OE
+SETF    /X /Y /Z
+CLOCKF   CLK
+CHECK   /A  B  C  D  E  F  G  H
+SETF    /X /Y  Z
+CLOCKF   CLK
+CHECK    A /B  C  D  E  F  G  H
+SETF    /X  Y /Z
+CLOCKF   CLK
+CHECK    A  B /C  D  E  F  G  H
+SETF    /X  Y  Z
+CLOCKF   CLK
+CHECK    A  B  C /D  E  F  G  H
+SETF     X /Y /Z
+CLOCKF   CLK
+CHECK    A  B  C  D /E  F  G  H
+SETF     X /Y  Z
+CLOCKF   CLK
+CHECK    A  B  C  D  E /F  G  H
+SETF     X  Y /Z
+CLOCKF   CLK
+CHECK    A  B  C  D  E  F /G  H
+SETF     X  Y  Z
+CLOCKF   CLK
+CHECK    A  B  C  D  E  F  G /H
+TRACE_OFF
+
+;-------------------------------------------------------------------

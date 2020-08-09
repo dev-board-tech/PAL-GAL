@@ -1,0 +1,41 @@
+;By Iulian Gheorghiu (morgoth@devboard.tech)
+
+;
+; This code represent a transparent routing network, each output can be internally wired to each input, useful in case of a rearrangement of a BUS.
+; OE is the output enable, when is logic HIGH the outputs are TRI STATE.
+;
+
+CHIP  DECODER  PAL16V8
+
+;---------------------------------- PIN Declarations ---------------
+;PIN  1         CLK                  COMBINATORIAL             ; INPUT
+PIN  2          AIN                  COMBINATORIAL             ; INPUT
+PIN  3          BIN                  COMBINATORIAL             ; INPUT
+PIN  4          CIN                  COMBINATORIAL             ; INPUT 
+PIN  5          DIN                  COMBINATORIAL             ; INPUT
+PIN  6          EIN                  COMBINATORIAL             ; INPUT
+PIN  7          FIN                  COMBINATORIAL             ; INPUT 
+PIN  8          GIN                  COMBINATORIAL             ; INPUT
+PIN  9          HIN                  COMBINATORIAL             ; INPUT
+;PIN  10        GND                                            ; INPUT
+PIN  11         OE                   COMBINATORIAL             ; INPUT
+PIN  12         HOUT                 COMBINATORIAL             ; OUTPUT
+PIN  13         GOUT                 COMBINATORIAL             ; OUTPUT
+PIN  14         FOUT                 COMBINATORIAL             ; OUTPUT
+PIN  15         EOUT                 COMBINATORIAL             ; OUTPUT
+PIN  16         DOUT                 COMBINATORIAL             ; OUTPUT
+PIN  17         COUT                 COMBINATORIAL             ; OUTPUT
+PIN  18         BOUT                 COMBINATORIAL             ; OUTPUT
+PIN  19         AOUT                 COMBINATORIAL             ; OUTPUT
+;PIN  20        VCC                                            ; INPUT
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+AOUT = AIN
+BOUT = BIN
+COUT = CIN
+DOUT = DIN
+EOUT = EIN
+FOUT = FIN
+GOUT = GIN
+HOUT = HIN
