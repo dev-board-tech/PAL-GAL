@@ -24,7 +24,7 @@ PIN  1          CLK                  COMBINATORIAL             ; INPUT
 PIN  2          X                    COMBINATORIAL             ; INPUT
 PIN  3          Y                    COMBINATORIAL             ; INPUT
 PIN  4          Z                    COMBINATORIAL             ; INPUT 
-;PIN  10        GND                                            ; INPUT
+PIN  10         GND                                            ; INPUT
 PIN  11         OE                   COMBINATORIAL             ; INPUT
 PIN  12         A                    COMBINATORIAL             ; OUTPUT
 PIN  13         B                    COMBINATORIAL             ; OUTPUT
@@ -34,7 +34,7 @@ PIN  16         E                    COMBINATORIAL             ; OUTPUT
 PIN  17         F                    COMBINATORIAL             ; OUTPUT
 PIN  18         G                    COMBINATORIAL             ; OUTPUT
 PIN  19         H                    COMBINATORIAL             ; OUTPUT
-;PIN  20        VCC                                            ; INPUT
+PIN  20         VCC                                            ; INPUT
 
 ;----------------------------------- Boolean Equation Segment ------
 EQUATIONS

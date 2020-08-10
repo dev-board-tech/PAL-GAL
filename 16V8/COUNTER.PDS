@@ -6,7 +6,7 @@ CHIP  COUNTER   PAL16V8
 ;---------------------------------- PIN Declarations ---------------
 PIN  1           CLK                  COMBINATORIAL             ; INPUT
 PIN  2           RST                  COMBINATORIAL             ; INPUT
-;PIN  10         GND                                            ; INPUT
+PIN  10          GND                                            ; INPUT
 PIN  11          OE                   COMBINATORIAL             ; INPUT
 PIN  12         /Q0                   REGISTERED                ; OUTPUT
 PIN  13         /Q1                   REGISTERED                ; OUTPUT
@@ -16,7 +16,7 @@ PIN  16         /Q4                   REGISTERED                ; OUTPUT
 PIN  17         /Q5                   REGISTERED                ; OUTPUT
 PIN  18         /Q6                   REGISTERED                ; OUTPUT
 PIN  19         /Q7                   REGISTERED                ; OUTPUT
-;PIN  20         VCC                                            ; INPUT
+PIN  20          VCC                                            ; INPUT
 
 ;----------------------------------- Boolean Equation Segment ------
 EQUATIONS

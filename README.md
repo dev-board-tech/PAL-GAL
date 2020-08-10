@@ -37,6 +37,8 @@ The window is very simple, there are some rendering issues but after you accommo
 
 A simple tutorial you read here: http://s100computers.com/My%20System%20Pages/ISA%20to%20S100%20Bus/Intro%20To%20GALs.htm
 
+PALASM Language guide: http://orion.ipt.pt/~fmbarros/ed/PALASM%20Language%20Guide.htm
+
 Down in the page you can download DOSBOX and PALASM, I included them here for archiving purpose.
 
 #### Pay attention that the enter key selects an action, but with F10 will execute the selected action ( Ehh, the old DOS  :) ).

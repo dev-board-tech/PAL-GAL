@@ -17,7 +17,7 @@ PIN  6          EIN                  COMBINATORIAL             ; INPUT
 PIN  7          FIN                  COMBINATORIAL             ; INPUT 
 PIN  8          GIN                  COMBINATORIAL             ; INPUT
 PIN  9          HIN                  COMBINATORIAL             ; INPUT
-;PIN  10        GND                                            ; INPUT
+PIN  10         GND                                            ; INPUT
 PIN  11         OE                   COMBINATORIAL             ; INPUT
 PIN  12         HOUT                 COMBINATORIAL             ; OUTPUT
 PIN  13         GOUT                 COMBINATORIAL             ; OUTPUT
@@ -27,7 +27,7 @@ PIN  16         DOUT                 COMBINATORIAL             ; OUTPUT
 PIN  17         COUT                 COMBINATORIAL             ; OUTPUT
 PIN  18         BOUT                 COMBINATORIAL             ; OUTPUT
 PIN  19         AOUT                 COMBINATORIAL             ; OUTPUT
-;PIN  20        VCC                                            ; INPUT
+PIN  20         VCC                                            ; INPUT
 
 ;----------------------------------- Boolean Equation Segment ------
 EQUATIONS

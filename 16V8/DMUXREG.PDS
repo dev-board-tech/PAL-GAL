@@ -16,7 +16,7 @@ PIN  2          X                    COMBINATORIAL             ; INPUT
 PIN  3          Y                    COMBINATORIAL             ; INPUT
 PIN  4          Z                    COMBINATORIAL             ; INPUT
 PIN  5          IN                   COMBINATORIAL             ; INPUT
-;PIN  10         GND                                            ; INPUT
+PIN  10         GND                                            ; INPUT
 PIN  11         OE                   COMBINATORIAL             ; INPUT
 PIN  12         A                    REGISTERED                ; OUTPUT
 PIN  13         B                    REGISTERED                ; OUTPUT
@@ -26,7 +26,7 @@ PIN  16         E                    REGISTERED                ; OUTPUT
 PIN  17         F                    REGISTERED                ; OUTPUT
 PIN  18         G                    REGISTERED                ; OUTPUT
 PIN  19         H                    REGISTERED                ; OUTPUT
-;PIN  20         VCC                                            ; INPUT
+PIN  20         VCC                                            ; INPUT
 
 ;----------------------------------- Boolean Equation Segment ------
 EQUATIONS
