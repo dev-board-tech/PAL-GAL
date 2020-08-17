@@ -49,7 +49,8 @@ I use XGecu TL866II-Plus Programmer, a Chinese cheap universal programmer that d
 
 # Examples:
 
-```
+#### 16V8:
+
 * COUNTER.PDS : A counter with 7 + 1 bit, first 7 bits can be reset, the last bit does not have the reset function due to hardware limitations.
 * DEC.PDS : A asynchronous decoder.
 * DECREG.PDS : A registered decoder.
@@ -57,5 +58,3 @@ I use XGecu TL866II-Plus Programmer, a Chinese cheap universal programmer that d
 * DMUXREG.PDS : A asynchronous logic demultiplexer.
 * REG.PDS : 8 bit register, useful if a registered bus or a rearranged registered BUS is needed.
 * WIRED.PDS : 8 in 8 out wired network, useful in case of a rearranged BUS is needed.
-
-```
